@@ -1,0 +1,26 @@
+{
+    "name": "Text Sprite",
+    "extensionId": "textsprite",
+    "iconURL": "feature.png",
+    "insetIconURL": "icon.png",
+    "tags": ["stage"],
+    "description": "The writing sprite.",
+    "collaborator": "Yeqin Gong",
+    "translationMap": {
+        "en": {
+            "name": "Text Sprite",
+            "description": "The writing sprite.",
+            "collaborator": "Yeqin Gong"
+        },
+        "zh-cn": {
+            "name": "文字精灵",
+            "description": "书写的精灵。",
+            "collaborator": "龚业勤"
+        },
+        "zh-tw": {
+            "name": "文字精靈",
+            "description": "書寫的精靈。",
+            "collaborator": "龔業勤"
+        }
+    }
+}

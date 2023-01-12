@@ -1,0 +1,26 @@
+{
+    "name": "Dictionary",
+    "extensionId": "dictionary",
+    "iconURL": "feature.png",
+    "insetIconURL": "icon.png",
+    "tags": ["data"],
+    "description": "Store your data with entries.",
+    "collaborator": "Yeqin Gong",
+    "translationMap": {
+        "en": {
+            "name": "Dictionary",
+            "description": "Store your data with entries.",
+            "collaborator": "Yeqin Gong"
+        },
+        "zh-cn": {
+            "name": "字典",
+            "description": "为你的数据建立词条。",
+            "collaborator": "龚业勤"
+        },
+        "zh-tw": {
+            "name": "字典",
+            "description": "為你的數據建立詞條。",
+            "collaborator": "龔業勤"
+        }
+    }
+}

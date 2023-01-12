@@ -13,32 +13,6 @@ class FetchBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'fetch.name': 'Fetch Data',
-                'fetch.data': 'fetch JSON data from [URL]',
-                'fetch.query': 'query [PATH] in data',
-                'fetch.length': 'length of data',
-                'fetch.clear': 'clear cache'
-            },
-            'zh-cn': {
-                'fetch.name': 'Fetch 数据',
-                'fetch.data': '从 [URL] 获取 JSON 数据',
-                'fetch.query': '在数据中查询 [PATH] 项目',
-                'fetch.length': '数据的项目数',
-                'fetch.clear': '清除缓存'
-            },
-            'zh-tw': {
-                'fetch.name': 'Fetch 數據',
-                'fetch.data': '從 [URL] 獲取 JSON 數據',
-                'fetch.query': '在數據中查詢 [PATH] 項目',
-                'fetch.length': '數據的項目數',
-                'fetch.clear': '清除緩存'
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -156,3 +130,29 @@ class FetchBlocks {
 }
 
 Scratch.extensions.register(FetchBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'fetch.name': 'Fetch Data',
+            'fetch.data': 'fetch JSON data from [URL]',
+            'fetch.query': 'query [PATH] in data',
+            'fetch.length': 'length of data',
+            'fetch.clear': 'clear cache'
+        },
+        'zh-cn': {
+            'fetch.name': 'Fetch 数据',
+            'fetch.data': '从 [URL] 获取 JSON 数据',
+            'fetch.query': '在数据中查询 [PATH] 项目',
+            'fetch.length': '数据的项目数',
+            'fetch.clear': '清除缓存'
+        },
+        'zh-tw': {
+            'fetch.name': 'Fetch 數據',
+            'fetch.data': '從 [URL] 獲取 JSON 數據',
+            'fetch.query': '在數據中查詢 [PATH] 項目',
+            'fetch.length': '數據的項目數',
+            'fetch.clear': '清除緩存'
+        }
+    }
+});

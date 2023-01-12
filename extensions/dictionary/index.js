@@ -8,47 +8,6 @@ class DictionaryBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'dictionary.name': 'Dictionary',
-                'dictionary.key': 'one',
-                'dictionary.value': 'thing',
-                'dictionary.default': '"one":"thing"',
-                'dictionary.decode': 'decode JSON format [DATA]',
-                'dictionary.json': 'dictionary in JSON format',
-                'dictionary.get': 'entry [KEY] of dictionary',
-                'dictionary.set': 'store [VALUE] with entry [KEY] to dictionary',
-                'dictionary.remove': 'delete [KEY] of dictionary',
-                'dictionary.clear': 'delete all of dictionary'
-            },
-            'zh-cn': {
-                'dictionary.name': '字典',
-                'dictionary.key': '一个',
-                'dictionary.value': '东西',
-                'dictionary.default': '"一个":"东西"',
-                'dictionary.decode': '将 JSON 格式 [DATA] 解析为字典',
-                'dictionary.json': 'JSON 格式字典',
-                'dictionary.get': '名字为[KEY]的项目',
-                'dictionary.set': '用[KEY]名字将[VALUE]存入字典',
-                'dictionary.remove': '删除名字为[KEY]的项目',
-                'dictionary.clear': '删除全部项目'
-            },
-            'zh-tw': {
-                'dictionary.name': '字典',
-                'dictionary.key': '一個',
-                'dictionary.value': '東西',
-                'dictionary.default': '"一個":"東西"',
-                'dictionary.decode': '將 JSON 格式 [DATA] 解析為字典',
-                'dictionary.json': 'JSON 格式字典',
-                'dictionary.get': '名字為[KEY]的項目',
-                'dictionary.set': '用[KEY]名字將[VALUE]存入字典',
-                'dictionary.remove': '刪除名字為[KEY]的項目',
-                'dictionary.clear': '刪除全部項目'
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -212,4 +171,45 @@ class DictionaryBlocks {
     }
 }
 
-Scratch.extensions.register(new DictionaryBlocks());
+Scratch.extensions.register(DictionaryBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'dictionary.name': 'Dictionary',
+            'dictionary.key': 'one',
+            'dictionary.value': 'thing',
+            'dictionary.default': '"one":"thing"',
+            'dictionary.decode': 'decode JSON format [DATA]',
+            'dictionary.json': 'dictionary in JSON format',
+            'dictionary.get': 'entry [KEY] of dictionary',
+            'dictionary.set': 'store [VALUE] with entry [KEY] to dictionary',
+            'dictionary.remove': 'delete [KEY] of dictionary',
+            'dictionary.clear': 'delete all of dictionary'
+        },
+        'zh-cn': {
+            'dictionary.name': '字典',
+            'dictionary.key': '一个',
+            'dictionary.value': '东西',
+            'dictionary.default': '"一个":"东西"',
+            'dictionary.decode': '将 JSON 格式 [DATA] 解析为字典',
+            'dictionary.json': 'JSON 格式字典',
+            'dictionary.get': '名字为[KEY]的项目',
+            'dictionary.set': '用[KEY]名字将[VALUE]存入字典',
+            'dictionary.remove': '删除名字为[KEY]的项目',
+            'dictionary.clear': '删除全部项目'
+        },
+        'zh-tw': {
+            'dictionary.name': '字典',
+            'dictionary.key': '一個',
+            'dictionary.value': '東西',
+            'dictionary.default': '"一個":"東西"',
+            'dictionary.decode': '將 JSON 格式 [DATA] 解析為字典',
+            'dictionary.json': 'JSON 格式字典',
+            'dictionary.get': '名字為[KEY]的項目',
+            'dictionary.set': '用[KEY]名字將[VALUE]存入字典',
+            'dictionary.remove': '刪除名字為[KEY]的項目',
+            'dictionary.clear': '刪除全部項目'
+        }
+    }
+});

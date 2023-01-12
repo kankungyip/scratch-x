@@ -12,29 +12,6 @@ class NotificationBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'notification.name': 'Notification',
-                'notification.whenClicked': 'when this notification clicked',
-                'notification.showNotification': 'show notification [MESSAGE]',
-                'notification.message': 'message'
-            },
-            'zh-cn': {
-                'notification.name': '通知',
-                'notification.whenClicked': '当通知被点击',
-                'notification.showNotification': '显示通知 [MESSAGE]',
-                'notification.message': '消息'
-            },
-            'zh-tw': {
-                'notification.name': '通知',
-                'notification.whenClicked': '當通知被點擊',
-                'notification.showNotification': '顯示通知 [MESSAGE]',
-                'notification.message': '消息'
-            }
-        };
-    }
-
     getInfo () {
         return {
             id: 'notification',
@@ -102,3 +79,26 @@ class NotificationBlocks {
 }
 
 Scratch.extensions.register(NotificationBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'notification.name': 'Notification',
+            'notification.whenClicked': 'when this notification clicked',
+            'notification.showNotification': 'show notification [MESSAGE]',
+            'notification.message': 'message'
+        },
+        'zh-cn': {
+            'notification.name': '通知',
+            'notification.whenClicked': '当通知被点击',
+            'notification.showNotification': '显示通知 [MESSAGE]',
+            'notification.message': '消息'
+        },
+        'zh-tw': {
+            'notification.name': '通知',
+            'notification.whenClicked': '當通知被點擊',
+            'notification.showNotification': '顯示通知 [MESSAGE]',
+            'notification.message': '消息'
+        }
+    }
+});

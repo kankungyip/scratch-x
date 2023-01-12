@@ -19,44 +19,6 @@ class MQTTBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'mqtt.name': 'MQTT Protocol',
-                'mqtt.connect': 'connect to MQTT broker: [URL]',
-                'mqtt.isConnected': 'connected to MQTT broker?',
-                'mqtt.whenReceived': 'when I receive [TOPIC]',
-                'mqtt.message': 'last message from [TOPIC]',
-                'mqtt.publish': 'publish [MESSAGE] to [TOPIC]',
-                'mqtt.message.topic': 'topic',
-                'mqtt.message.content': 'message',
-                'mqtt.end': 'disconnect'
-            },
-            'zh-cn': {
-                'mqtt.name': 'MQTT 协议',
-                'mqtt.connect': '连接到 MQTT 服务器: [URL]',
-                'mqtt.isConnected': '连接到 MQTT 服务器？',
-                'mqtt.whenReceived': '当接收到 [TOPIC] 的消息',
-                'mqtt.message': '最后的 [TOPIC] 消息',
-                'mqtt.publish': '发布 [TOPIC] 的 [MESSAGE]',
-                'mqtt.message.topic': '主题',
-                'mqtt.message.content': '消息',
-                'mqtt.end': '结束连接'
-            },
-            'zh-tw': {
-                'mqtt.name': 'MQTT 協議',
-                'mqtt.connect': '連接到 MQTT 服務器: [URL]',
-                'mqtt.isConnected': '連接到 MQTT 服務器？',
-                'mqtt.whenReceived': '當接收到 [TOPIC] 的消息',
-                'mqtt.message': '最後的 [TOPIC] 消息',
-                'mqtt.publish': '發布 [TOPIC] 的 [MESSAGE]',
-                'mqtt.message.topic': '主題',
-                'mqtt.message.content': '消息',
-                'mqtt.end': '結束連接'
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -254,3 +216,41 @@ class MQTTBlocks {
 }
 
 Scratch.extensions.register(MQTTBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'mqtt.name': 'MQTT Protocol',
+            'mqtt.connect': 'connect to MQTT broker: [URL]',
+            'mqtt.isConnected': 'connected to MQTT broker?',
+            'mqtt.whenReceived': 'when I receive [TOPIC]',
+            'mqtt.message': 'last message from [TOPIC]',
+            'mqtt.publish': 'publish [MESSAGE] to [TOPIC]',
+            'mqtt.message.topic': 'topic',
+            'mqtt.message.content': 'message',
+            'mqtt.end': 'disconnect'
+        },
+        'zh-cn': {
+            'mqtt.name': 'MQTT 协议',
+            'mqtt.connect': '连接到 MQTT 服务器: [URL]',
+            'mqtt.isConnected': '连接到 MQTT 服务器？',
+            'mqtt.whenReceived': '当接收到 [TOPIC] 的消息',
+            'mqtt.message': '最后的 [TOPIC] 消息',
+            'mqtt.publish': '发布 [TOPIC] 的 [MESSAGE]',
+            'mqtt.message.topic': '主题',
+            'mqtt.message.content': '消息',
+            'mqtt.end': '结束连接'
+        },
+        'zh-tw': {
+            'mqtt.name': 'MQTT 協議',
+            'mqtt.connect': '連接到 MQTT 服務器: [URL]',
+            'mqtt.isConnected': '連接到 MQTT 服務器？',
+            'mqtt.whenReceived': '當接收到 [TOPIC] 的消息',
+            'mqtt.message': '最後的 [TOPIC] 消息',
+            'mqtt.publish': '發布 [TOPIC] 的 [MESSAGE]',
+            'mqtt.message.topic': '主題',
+            'mqtt.message.content': '消息',
+            'mqtt.end': '結束連接'
+        }
+    }
+});

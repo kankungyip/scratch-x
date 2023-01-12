@@ -26,32 +26,6 @@ class TranslateBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'translate.categoryName': 'Translate',
-                'translate.translateBlock': 'translate [WORDS] to [LANGUAGE]',
-                'translate.defaultTextToTranslate': 'hello',
-                'translate.viewerLanguage': 'language',
-                'translate.baiduApi': 'Baidu developer [APPID] and [SECRET]'
-            },
-            'zh-cn': {
-                'translate.categoryName': '翻译',
-                'translate.translateBlock': '将 [WORDS] 译为 [LANGUAGE]',
-                'translate.defaultTextToTranslate': '你好',
-                'translate.viewerLanguage': '访客语言',
-                'translate.baiduApi': '百度开发者 [APPID] 和 [SECRET]'
-            },
-            'zh-tw': {
-                'translate.categoryName': '翻譯',
-                'translate.translateBlock': '文字 [WORDS] 翻譯成 [LANGUAGE]',
-                'translate.defaultTextToTranslate': 'hello',
-                'translate.viewerLanguage': '瀏覽者的語言',
-                'translate.baiduApi': '百度開發者 [APPID] 和 [SECRET]'
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -333,3 +307,29 @@ const LANGUAGE_NAMES = {
 };
 
 Scratch.extensions.register(TranslateBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'translate.categoryName': 'Translate',
+            'translate.translateBlock': 'translate [WORDS] to [LANGUAGE]',
+            'translate.defaultTextToTranslate': 'hello',
+            'translate.viewerLanguage': 'language',
+            'translate.baiduApi': 'Baidu developer [APPID] and [SECRET]'
+        },
+        'zh-cn': {
+            'translate.categoryName': '翻译',
+            'translate.translateBlock': '将 [WORDS] 译为 [LANGUAGE]',
+            'translate.defaultTextToTranslate': '你好',
+            'translate.viewerLanguage': '访客语言',
+            'translate.baiduApi': '百度开发者 [APPID] 和 [SECRET]'
+        },
+        'zh-tw': {
+            'translate.categoryName': '翻譯',
+            'translate.translateBlock': '文字 [WORDS] 翻譯成 [LANGUAGE]',
+            'translate.defaultTextToTranslate': 'hello',
+            'translate.viewerLanguage': '瀏覽者的語言',
+            'translate.baiduApi': '百度開發者 [APPID] 和 [SECRET]'
+        }
+    }
+});

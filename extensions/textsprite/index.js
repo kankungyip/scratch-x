@@ -78,77 +78,6 @@ class TextSpriteBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'textsprite.name': 'Text Sprite',
-                'textsprite.writeText': 'write [TEXT] at x:[X] y:[Y]',
-                'textsprite.defaultText': 'Hello!',
-                'textsprite.clear': 'clear all texts',
-                'textsprite.setFont': 'set font to [FONT]',
-                'textsprite.setColor': 'set text color to [COLOR]',
-                'textsprite.setAnchor': 'set text align to [ANCHOR]',
-                'textsprite.anchorLeft': 'left',
-                'textsprite.anchorMiddle': 'middle',
-                'textsprite.anchorRight': 'right',
-                'textsprite.setBaseline': 'set text vertical align to [BASELINE]',
-                'textsprite.baselineTop': 'top',
-                'textsprite.baselineMiddle': 'middle',
-                'textsprite.baselineBottom': 'bottom',
-                'textsprite.setSize': 'set font size to [SIZE]',
-                'textsprite.setStyle': 'set font style to [STYLE]',
-                'textsprite.styleNormal': 'normal',
-                'textsprite.styleOblique': 'oblique',
-                'textsprite.styleBold': 'bold',
-                'textsprite.styleAll': 'bold + oblique'
-            },
-            'zh-cn': {
-                'textsprite.name': '文字精灵',
-                'textsprite.writeText': '在 x:[X] y:[Y] 写 [TEXT]',
-                'textsprite.defaultText': '你好！',
-                'textsprite.clear': '擦除所有文字',
-                'textsprite.setFont': '将字体设为 [FONT]',
-                'textsprite.setColor': '将文字颜色设为 [COLOR]',
-                'textsprite.setAnchor': '将对齐方式设为 [ANCHOR]',
-                'textsprite.anchorLeft': '居左',
-                'textsprite.anchorMiddle': '居中',
-                'textsprite.anchorRight': '居右',
-                'textsprite.setBaseline': '将垂直对齐方式设为 [BASELINE]',
-                'textsprite.baselineTop': '顶部',
-                'textsprite.baselineMiddle': '中间',
-                'textsprite.baselineBottom': '底部',
-                'textsprite.setSize': '将文字大小设为 [SIZE]',
-                'textsprite.setStyle': '将文字样式设为 [STYLE]',
-                'textsprite.styleNormal': '普通',
-                'textsprite.styleOblique': '倾斜',
-                'textsprite.styleBold': '加粗',
-                'textsprite.styleAll': '加粗+倾斜'
-            },
-            'zh-tw': {
-                'textsprite.name': '文字精靈',
-                'textsprite.writeText': '在 x:[X] y:[Y] 寫 [TEXT]',
-                'textsprite.defaultText': '你好！',
-                'textsprite.clear': '擦除所有文字',
-                'textsprite.setFont': '將字體設為 [FONT]',
-                'textsprite.setColor': '將文字顏色設為 [COLOR]',
-                'textsprite.setAnchor': '將對齊方式設為 [ANCHOR]',
-                'textsprite.anchorLeft': '居左',
-                'textsprite.anchorMiddle': '居中',
-                'textsprite.anchorRight': '居右',
-                'textsprite.setBaseline': '將垂直對齊方式設為 [BASELINE]',
-                'textsprite.baselineTop': '頂部',
-                'textsprite.baselineMiddle': '中間',
-                'textsprite.baselineBottom': '底部',
-                'textsprite.setSize': '將文字大小設為 [SIZE]',
-                'textsprite.setStyle': '將文字樣式設為 [STYLE]',
-                'textsprite.styleNormal': '普通',
-                'textsprite.styleOblique': '傾斜',
-                'textsprite.styleBold': '加粗',
-                'textsprite.styleAll': '加粗+傾斜'
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -494,3 +423,74 @@ ${this.texts.map(text =>
 }
 
 Scratch.extensions.register(TextSpriteBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'textsprite.name': 'Text Sprite',
+            'textsprite.writeText': 'write [TEXT] at x:[X] y:[Y]',
+            'textsprite.defaultText': 'Hello!',
+            'textsprite.clear': 'clear all texts',
+            'textsprite.setFont': 'set font to [FONT]',
+            'textsprite.setColor': 'set text color to [COLOR]',
+            'textsprite.setAnchor': 'set text align to [ANCHOR]',
+            'textsprite.anchorLeft': 'left',
+            'textsprite.anchorMiddle': 'middle',
+            'textsprite.anchorRight': 'right',
+            'textsprite.setBaseline': 'set text vertical align to [BASELINE]',
+            'textsprite.baselineTop': 'top',
+            'textsprite.baselineMiddle': 'middle',
+            'textsprite.baselineBottom': 'bottom',
+            'textsprite.setSize': 'set font size to [SIZE]',
+            'textsprite.setStyle': 'set font style to [STYLE]',
+            'textsprite.styleNormal': 'normal',
+            'textsprite.styleOblique': 'oblique',
+            'textsprite.styleBold': 'bold',
+            'textsprite.styleAll': 'bold + oblique'
+        },
+        'zh-cn': {
+            'textsprite.name': '文字精灵',
+            'textsprite.writeText': '在 x:[X] y:[Y] 写 [TEXT]',
+            'textsprite.defaultText': '你好！',
+            'textsprite.clear': '擦除所有文字',
+            'textsprite.setFont': '将字体设为 [FONT]',
+            'textsprite.setColor': '将文字颜色设为 [COLOR]',
+            'textsprite.setAnchor': '将对齐方式设为 [ANCHOR]',
+            'textsprite.anchorLeft': '居左',
+            'textsprite.anchorMiddle': '居中',
+            'textsprite.anchorRight': '居右',
+            'textsprite.setBaseline': '将垂直对齐方式设为 [BASELINE]',
+            'textsprite.baselineTop': '顶部',
+            'textsprite.baselineMiddle': '中间',
+            'textsprite.baselineBottom': '底部',
+            'textsprite.setSize': '将文字大小设为 [SIZE]',
+            'textsprite.setStyle': '将文字样式设为 [STYLE]',
+            'textsprite.styleNormal': '普通',
+            'textsprite.styleOblique': '倾斜',
+            'textsprite.styleBold': '加粗',
+            'textsprite.styleAll': '加粗+倾斜'
+        },
+        'zh-tw': {
+            'textsprite.name': '文字精靈',
+            'textsprite.writeText': '在 x:[X] y:[Y] 寫 [TEXT]',
+            'textsprite.defaultText': '你好！',
+            'textsprite.clear': '擦除所有文字',
+            'textsprite.setFont': '將字體設為 [FONT]',
+            'textsprite.setColor': '將文字顏色設為 [COLOR]',
+            'textsprite.setAnchor': '將對齊方式設為 [ANCHOR]',
+            'textsprite.anchorLeft': '居左',
+            'textsprite.anchorMiddle': '居中',
+            'textsprite.anchorRight': '居右',
+            'textsprite.setBaseline': '將垂直對齊方式設為 [BASELINE]',
+            'textsprite.baselineTop': '頂部',
+            'textsprite.baselineMiddle': '中間',
+            'textsprite.baselineBottom': '底部',
+            'textsprite.setSize': '將文字大小設為 [SIZE]',
+            'textsprite.setStyle': '將文字樣式設為 [STYLE]',
+            'textsprite.styleNormal': '普通',
+            'textsprite.styleOblique': '傾斜',
+            'textsprite.styleBold': '加粗',
+            'textsprite.styleAll': '加粗+傾斜'
+        }
+    }
+});

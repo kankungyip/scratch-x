@@ -40,47 +40,6 @@ class QRCodeBlocks {
         formatMessage.setup({locale});
     }
 
-    get TranslationMap () {
-        return {
-            en: {
-                'qrcode.name': 'QR Code',
-                'qrcode.decodeCamera': 'scan QR code from camera',
-                'qrcode.whenAnyQRcode': 'when QR code is scanned',
-                'qrcode.whenQRcode': 'when QR code is [TEXT]',
-                'qrcode.defaultQRcodeText': 'hello!',
-                'qrcode.decode': 'scan QR code from [IMAGE]',
-                'qrcode.clear': 'clear all QR code',
-                'qrcode.generate': 'generate QR code with [TEXT] at x:[X] y:[Y]',
-                'qrcode.setColor': 'set QR code color to [COLOR]',
-                'qrcode.setSize': 'set QR code size to [SIZE]',
-            },
-            'zh-cn': {
-                'qrcode.name': '二维码',
-                'qrcode.decodeCamera': '扫描二维码',
-                'qrcode.whenAnyQRcode': '当扫描到二维码',
-                'qrcode.whenQRcode': '当二维码是 [TEXT]',
-                'qrcode.defaultQRcodeText': '你好！',
-                'qrcode.decode': '从 [IMAGE] 图片扫描二维码',
-                'qrcode.clear': '擦除所有二维码',
-                'qrcode.generate': '在 x:[X] y:[Y] 生成 [TEXT] 的二维码',
-                'qrcode.setColor': '将二维码颜色设为 [COLOR]',
-                'qrcode.setSize': '将二维码尺寸设为 [SIZE]',
-            },
-            'zh-tw': {
-                'qrcode.name': '二維碼',
-                'qrcode.decodeCamera': '掃描二維碼',
-                'qrcode.whenAnyQRcode': '當掃描到二維碼',
-                'qrcode.whenQRcode': '當二維碼是 [TEXT]',
-                'qrcode.defaultQRcodeText': '你好！',
-                'qrcode.decode': '從 [IMAGE] 圖片掃描二維碼',
-                'qrcode.clear': '擦除所有二維碼',
-                'qrcode.generate': '在 x:[X] y:[Y] 生成 [TEXT] 的二維碼',
-                'qrcode.setColor': '將二維碼顏色設為 [COLOR]',
-                'qrcode.setSize': '將二維碼尺寸設為 [SIZE]',
-            }
-        };
-    }
-
     get Blocks () {
         return [
             {
@@ -292,3 +251,44 @@ ${this.qrcodeGs.join('\n')}
 }
 
 Scratch.extensions.register(QRCodeBlocks);
+
+formatMessage.setup({
+    translations: {
+        en: {
+            'qrcode.name': 'QR Code',
+            'qrcode.decodeCamera': 'scan QR code from camera',
+            'qrcode.whenAnyQRcode': 'when QR code is scanned',
+            'qrcode.whenQRcode': 'when QR code is [TEXT]',
+            'qrcode.defaultQRcodeText': 'hello!',
+            'qrcode.decode': 'scan QR code from [IMAGE]',
+            'qrcode.clear': 'clear all QR code',
+            'qrcode.generate': 'generate QR code with [TEXT] at x:[X] y:[Y]',
+            'qrcode.setColor': 'set QR code color to [COLOR]',
+            'qrcode.setSize': 'set QR code size to [SIZE]',
+        },
+        'zh-cn': {
+            'qrcode.name': '二维码',
+            'qrcode.decodeCamera': '扫描二维码',
+            'qrcode.whenAnyQRcode': '当扫描到二维码',
+            'qrcode.whenQRcode': '当二维码是 [TEXT]',
+            'qrcode.defaultQRcodeText': '你好！',
+            'qrcode.decode': '从 [IMAGE] 图片扫描二维码',
+            'qrcode.clear': '擦除所有二维码',
+            'qrcode.generate': '在 x:[X] y:[Y] 生成 [TEXT] 的二维码',
+            'qrcode.setColor': '将二维码颜色设为 [COLOR]',
+            'qrcode.setSize': '将二维码尺寸设为 [SIZE]',
+        },
+        'zh-tw': {
+            'qrcode.name': '二維碼',
+            'qrcode.decodeCamera': '掃描二維碼',
+            'qrcode.whenAnyQRcode': '當掃描到二維碼',
+            'qrcode.whenQRcode': '當二維碼是 [TEXT]',
+            'qrcode.defaultQRcodeText': '你好！',
+            'qrcode.decode': '從 [IMAGE] 圖片掃描二維碼',
+            'qrcode.clear': '擦除所有二維碼',
+            'qrcode.generate': '在 x:[X] y:[Y] 生成 [TEXT] 的二維碼',
+            'qrcode.setColor': '將二維碼顏色設為 [COLOR]',
+            'qrcode.setSize': '將二維碼尺寸設為 [SIZE]',
+        }
+    }
+});

@@ -9,12 +9,8 @@ const INDICES_URL = 'https://devapi.qweather.com/v7/indices/1d?';
 const AIR_QUALITY_URL = 'https://devapi.qweather.com/v7/air/now?';
 
 class WeatherBlocks {
-    constructor (runtime) {
-        this.runtime = runtime;
-        this.runtime.requestPermission('getCurrentPosition');
-        
+    constructor () {
         this._cache = {};
-
         this.key = DEVELOPMENT ? 'b5a5cd38cbc64ce688864b215faf0af0' : 'key';
         this.unit = 'm';
     }
@@ -392,29 +388,31 @@ class WeatherBlocks {
         return locale.split('-')[0];
     }
 
-    async _getLocation () {
+    _getLocation () {
         if (this._cache.location) {
             return this._cache.location;
         }
-        const {coords} = await this.runtime.requestPermission('getCurrentPosition');
-        const lat = coords.latitude.toFixed(2);
-        const long = coords.longitude.toFixed(2);
-        const location = `${long},${lat}`;
-        this._cache.location = location;
-        return location;
+        return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(({coords}) => {
+                const lat = coords.latitude.toFixed(2);
+                const long = coords.longitude.toFixed(2);
+                const location = `${long},${lat}`;
+                this._cache.location = location;
+                resolve(location);
+            }, reject);
+        });
     }
 
     async _fetchWeather (baseUrl, queryStr) {
         try {
-            let url = baseUrl + queryStr;
+            let url = baseUrl + (queryStr || '');
             url += `&key=${this.key}`
             url += `&location=${await this._getLocation()}`
             url += `&lang=${this._language}`;
             const res = await (await fetch(url)).json();
-            if (res.code === '200') {
-                return res;
-            }
+            if (res.code === '200') return res;
         } catch (err) {
+            console.error(`${err}`);
             return false;
         }
     }

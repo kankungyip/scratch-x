@@ -1,0 +1,22 @@
+{
+  "name": "scratch-x",
+  "version": "0.1.0",
+  "description": "The extension manager for Scratch 3.0",
+  "scripts": {
+    "build": "npm run clean && node ./scripts/build.js",
+    "clean": "rimraf ./dist",
+    "start": "http-server -c-1 -g --cors -p 8018 ./dist"
+  },
+  "keywords": [
+    "scratch",
+    "extensions"
+  ],
+  "author": "Yeqin Gong",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "uglify-js": "^3.17.4"
+  }
+}

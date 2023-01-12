@@ -205,7 +205,7 @@ class TranslateBlocks {
         return fetchJsonp(url)
             .then(({trans_result, error_msg}) => {
                 if (error_msg) {
-                    log.warn(`error fetching translate result! ${error_msg}`);
+                    console.warn(`error fetching translate result! ${error_msg}`);
                     return '';
                 }
                 if (trans_result && trans_result.length > 0) {
@@ -220,7 +220,7 @@ class TranslateBlocks {
                 return '';
             })
             .catch(err => {
-                log.warn(`error fetching translate result! ${err}`);
+                console.warn(`error fetching translate result! ${err}`);
                 return '';
             });
     }

@@ -114,7 +114,7 @@ class FetchBlocks {
             const res = await fetch(URL);
             data = await res.json();
         } catch (e) {
-            log.error(`error fetching result! ${e}`);
+            console.error(`error fetching result! ${e}`);
             this.data = {};
             return
         }
@@ -135,7 +135,7 @@ class FetchBlocks {
                 data = data[key];
             }
         } catch (e) {
-            log.error(`error query data! ${e}`);
+            console.error(`error query data! ${e}`);
             return '';
         }
         return data;

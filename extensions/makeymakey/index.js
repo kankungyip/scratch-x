@@ -1,5 +1,5 @@
 const {ArgumentType, BlockType} = Scratch;
-const Cast = Util.Cast;
+const Cast = Scratch.Util.Cast;
 
 /**
  * Icon svg to be displayed at the left edge of each extension block, encoded as a data URI.

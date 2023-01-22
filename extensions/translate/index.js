@@ -22,10 +22,6 @@ class TranslateBlocks {
         this.secret = DEVELOPMENT ? '3oxg7uFj9cGwCsqgDuna' : 'SECRET';
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     get Blocks () {
         return [
             {

@@ -36,10 +36,6 @@ class QRCodeBlocks {
         this.dataURI = dataURI || '';
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     get Blocks () {
         return [
             {

@@ -74,10 +74,6 @@ class TextSpriteBlocks {
         }
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     get Blocks () {
         return [
             {

@@ -15,10 +15,6 @@ class MQTTBlocks {
         this.messages = new Map();
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     get Blocks () {
         return [
             {

@@ -15,10 +15,6 @@ class WeatherBlocks {
         this.unit = 'm';
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     get Blocks () {
         return [
             {

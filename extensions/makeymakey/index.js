@@ -97,10 +97,6 @@ class Scratch3MakeyMakeyBlocks {
         this.lastKeyPressed = null;
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     /*
     * Localized short-form names of the space bar and arrow keys, for use in the
     * displayed menu items of the "when keys pressed in order" block.

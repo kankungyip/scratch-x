@@ -8,10 +8,6 @@ class NotificationBlocks {
         this.isClicked = false;
     }
 
-    setLocale (locale) {
-        formatMessage.setup({locale});
-    }
-
     getInfo () {
         return {
             id: 'notification',

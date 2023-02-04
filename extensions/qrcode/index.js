@@ -140,6 +140,7 @@ class QRCodeBlocks {
     getInfo () {
         return {
             id: 'qrcode',
+            dependencies: ['videoSensing'],
             name: formatMessage({
                 id: 'qrcode.name',
                 default: 'QR Code'

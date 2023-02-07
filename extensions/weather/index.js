@@ -13,6 +13,8 @@ class WeatherBlocks {
         this._cache = {};
         this.key = DEVELOPMENT ? 'b5a5cd38cbc64ce688864b215faf0af0' : 'key';
         this.unit = 'm';
+
+        Scratch.emitter.on('BLOCKSINFO_UPDATE', this._clearCache.bind(this));
     }
 
     get Blocks () {
@@ -320,7 +322,7 @@ class WeatherBlocks {
             return this._cache.location;
         }
         return new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(({coords}) => {
+            Scratch.geolocation.getCurrentPosition(({coords}) => {
                 const lat = coords.latitude.toFixed(2);
                 const long = coords.longitude.toFixed(2);
                 const location = `${long},${lat}`;
@@ -340,7 +342,6 @@ class WeatherBlocks {
             if (res.code === '200') return res;
         } catch (err) {
             console.error(`${err}`);
-            return false;
         }
     }
 
@@ -444,9 +445,13 @@ class WeatherBlocks {
         const value = await this._getAirQuality(args.TYPE);
         return value === 'NA' ? '无' : value;
     }
+
+    _clearCache () {
+        this._cache = {};
+    }
 }
 
-Scratch.extensions.register(WeatherBlocks);
+Scratch.extensions.register(new WeatherBlocks());
 
 formatMessage.setup({
     translations: {

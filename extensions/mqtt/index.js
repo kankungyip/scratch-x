@@ -211,7 +211,7 @@ class MQTTBlocks {
     }
 }
 
-Scratch.extensions.register(MQTTBlocks);
+Scratch.extensions.register(new MQTTBlocks());
 
 formatMessage.setup({
     translations: {

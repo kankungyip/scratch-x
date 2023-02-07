@@ -74,7 +74,7 @@ class NotificationBlocks {
     }
 }
 
-Scratch.extensions.register(NotificationBlocks);
+Scratch.extensions.register(new NotificationBlocks());
 
 formatMessage.setup({
     translations: {

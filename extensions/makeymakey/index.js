@@ -62,18 +62,12 @@ const SCRATCH_KEY_NAME = {
  * @constructor
  */
 class Scratch3MakeyMakeyBlocks {
-    constructor (runtime) {
-        /**
-         * The runtime instantiating this block package.
-         * @type {Runtime}
-         */
-        this.runtime = runtime;
-
+    constructor () {
         this.keyPressed = this.keyPressed.bind(this);
-        this.runtime.on('KEY_PRESSED', this.keyPressed);
+        Scratch.emitter.on('KEY_PRESSED', this.keyPressed);
 
         this._clearkeyPressBuffer = this._clearkeyPressBuffer.bind(this);
-        this.runtime.on('PROJECT_STOP_ALL', this._clearkeyPressBuffer);
+        Scratch.emitter.on('PROJECT_STOP_ALL', this._clearkeyPressBuffer);
 
         /*
          * An object containing a set of sequence objects.
@@ -377,7 +371,7 @@ class Scratch3MakeyMakeyBlocks {
     }
 }
 
-Scratch.extensions.register(Scratch3MakeyMakeyBlocks);
+Scratch.extensions.register(new Scratch3MakeyMakeyBlocks());
 
 formatMessage.setup({
     translations: {

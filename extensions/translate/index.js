@@ -173,6 +173,7 @@ class TranslateBlocks {
         url += `&sign=${md5(signStr)}`;
 
         return fetchJsonp(url)
+            .then(res => res.json())
             .then(({trans_result, error_msg}) => {
                 if (error_msg) {
                     console.warn(`error fetching translate result! ${error_msg}`);
@@ -302,7 +303,7 @@ const LANGUAGE_NAMES = {
     }
 };
 
-Scratch.extensions.register(TranslateBlocks);
+Scratch.extensions.register(new TranslateBlocks());
 
 formatMessage.setup({
     translations: {

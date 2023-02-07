@@ -5,7 +5,8 @@
   "scripts": {
     "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./dist",
-    "start": "http-server -c-1 -g --cors -p 8018 ./dist"
+    "watch": "npm run clean && node ./scripts/build.js --watch",
+    "start": "npm run watch & http-server -s -c-1 -g --cors -p 8018 ./dist"
   },
   "keywords": [
     "scratch",

@@ -1,0 +1,25 @@
+{
+    "disabled": true,
+    "name": "Raspberry Pi Pico",
+    "extensionId": "rpipico",
+    "iconURL": "feature.png",
+    "insetIconURL": "icon.png",
+    "tags": ["hardware"],
+    "description": "Powerful, flexible microcontroller board.",
+    "usbConnectionRequired": true,
+    "launchPeripheralConnectionFlow": true,
+    "translationMap": {
+        "en": {
+            "name": "Raspberry Pi Pico",
+            "description": "Powerful, flexible microcontroller board."
+        },
+        "zh-cn": {
+            "name": "树莓派 Pico",
+            "description": "强大、灵活的微控制器板。"
+        },
+        "zh-tw": {
+            "name": "樹莓派 Pico",
+            "description": "強大、靈活的微控制器板。"
+        }
+    }
+}

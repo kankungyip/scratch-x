@@ -1,0 +1,26 @@
+{
+    "disabled": true,
+    "name": "Pico:ed V2",
+    "extensionId": "picoed2",
+    "iconURL": "feature.png",
+    "insetIconURL": "icon.png",
+    "tags": ["hardware"],
+    "description": "Small board to play with the big world.",
+    "collaborator": "ELECFREAKS",
+    "usbConnectionRequired": true,
+    "launchPeripheralConnectionFlow": true,
+    "translationMap": {
+        "en": {
+            "description": "Small board to play with the big world.",
+            "collaborator": "ELECFREAKS"
+        },
+        "zh-cn": {
+            "description": "小小开发板玩转大大世界。",
+            "collaborator": "恩孚科技"
+        },
+        "zh-tw": {
+            "description": "小小開發板玩轉大大世界。",
+            "collaborator": "ELECFREAKS"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "disabled": true,
+    "name": "LEGO Super Mario",
+    "extensionId": "legomario",
+    "iconURL": "feature.png",
+    "insetIconURL": "icon.svg",
+    "tags": ["hardware", "sensing"],
+    "description": "Mario is alive!",
+    "collaborator": "Yeqin Gong",
+    "bluetoothRequired": true,
+    "launchPeripheralConnectionFlow": true,
+    "translationMap": {
+        "en": {
+            "name": "LEGO Super Mario",
+            "description": "Mario is alive!",
+            "collaborator": "Yeqin Gong"
+        },
+        "zh-cn": {
+            "name": "LEGO 超级马力欧",
+            "description": "马力欧活力新生啦！",
+            "collaborator": "龚业勤"
+        },
+        "zh-tw": {
+            "name": "LEGO 超級瑪利歐",
+            "description": "瑪利歐活力新生啦！",
+            "collaborator": "龔業勤"
+        }
+    }
+}

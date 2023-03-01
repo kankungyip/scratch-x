@@ -1,13 +1,19 @@
+const copyDir = require('copy-dir');
+const ejs = require('ejs');
 const fs = require('fs');
-const path = require('path');
+const marked = require('marked').marked;
 const mkdirp = require('mkdirp');
-const UglifyJS = require('uglify-js');
+const path = require('path');
 const process = require('process');
+const UglifyJS = require('uglify-js');
 
 const EXTENSIONS_DIR = path.join(__dirname, '../extensions');
+const STATIC_DIR = path.join(__dirname, '../static');
 const DIST_EXTENSIONS_DIR = path.join(__dirname, '../dist/extensions');
 const DIST_LOCALES_DIR = path.join(__dirname, '../dist/locales');
+const DIST_STATIC_DIR = path.join(__dirname, '../dist');
 
+const TEMPLATE_FILE = path.join(__dirname, '../build/template.ejs');
 const CONFIG_FILE = 'config.json';
 
 const SUPPORTED_EXTNAMES = [
@@ -20,15 +26,28 @@ const SUPPORTED_EXTNAMES = [
     '.md'
 ];
 
+mkdirp.sync(DIST_STATIC_DIR);
 mkdirp.sync(DIST_EXTENSIONS_DIR);
 mkdirp.sync(DIST_LOCALES_DIR);
 
 const build = isMinify => {
+    copyDir(STATIC_DIR, DIST_STATIC_DIR, {
+        filiter: (stat, filepath, filename) => {
+            return filename[0] !== '.';
+        }
+    });
+
+    const template = fs.readFileSync(TEMPLATE_FILE, 'utf8');
+
     const collection = {};
     fs.readdirSync(EXTENSIONS_DIR).forEach(extension => {
+        const extensionPath = path.join(EXTENSIONS_DIR, extension);
+        const stat = fs.statSync(extensionPath);
+        if (!stat.isDirectory()) return;
+
         mkdirp.sync(path.join(DIST_EXTENSIONS_DIR, extension));
 
-        fs.readdirSync(path.join(EXTENSIONS_DIR, extension)).forEach(filename => {
+        fs.readdirSync(extensionPath).forEach(filename => {
             if (
                 filename[0] === '.' ||
                 !SUPPORTED_EXTNAMES.includes(path.extname(filename))
@@ -58,6 +77,19 @@ const build = isMinify => {
             }
 
             if (path.extname(filename).toLowerCase() === '.md') {
+                let title = '';
+                marked.use({
+                    walkTokens: token => {
+                        if (token.type === 'heading' && token.depth === 1) {
+                            title = token.text;
+                        }
+                    }
+                });
+                const markdown = marked.parse(fs.readFileSync(filepath, 'utf8'));
+                const lang = path.extname(path.basename(filename, '.md'))
+                    .substring(1).toLowerCase();
+                const html = ejs.render(template, {lang, title, markdown});
+                fs.writeFileSync(outpath.replace(/\.md$/i, '.html'), html);
                 return;
             }
 

@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./dist",
+    "deploy": "touch dist/.nojekyll && gh-pages -t -d dist -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "watch": "npm run clean && node ./scripts/build.js --watch",
     "start": "npm run watch & http-server -s -c-1 -g --cors -p 8018 ./dist"
   },
@@ -17,6 +18,7 @@
   "devDependencies": {
     "copy-dir": "^1.3.0",
     "ejs": "^3.1.8",
+    "gh-pages": "^5.0.0",
     "http-server": "^14.1.1",
     "marked": "^4.2.12",
     "mkdirp": "^1.0.4",

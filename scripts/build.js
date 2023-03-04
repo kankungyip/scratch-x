@@ -47,72 +47,85 @@ const build = isMinify => {
 
         mkdirp.sync(path.join(DIST_EXTENSIONS_DIR, extension));
 
-        fs.readdirSync(extensionPath).forEach(filename => {
-            if (
-                filename[0] === '.' ||
-                !SUPPORTED_EXTNAMES.includes(path.extname(filename))
-            ) {
-                return;
-            }
+        fs.readdirSync(extensionPath)
+            .filter(filename => {
+                const filepath = path.join(EXTENSIONS_DIR, extension, filename);
+                const stat = fs.statSync(filepath);
+                return filename[0] !== '.' &&
+                    (
+                        stat.isDirectory() ||
+                        SUPPORTED_EXTNAMES.includes(path.extname(filename))
+                    )
+            })
+            .forEach(filename => {
+                const filepath = path.join(EXTENSIONS_DIR, extension, filename);
+                const outpath = path.join(DIST_EXTENSIONS_DIR, extension, filename);
 
-            const filepath = path.join(EXTENSIONS_DIR, extension, filename);
-            const outpath = path.join(DIST_EXTENSIONS_DIR, extension, filename);
-
-            if (filename.toLowerCase() === CONFIG_FILE) {
-                try {
-                    const {translationMap, ...configData} = JSON.parse(fs.readFileSync(filepath, 'utf8'));
-                    collection['en'] = collection['en'] || {};
-                    collection['en'][extension] = configData;
-                    Object.entries(translationMap).forEach(([locale, data]) => {
-                        collection[locale] = collection[locale] || {};
-                        collection[locale][extension] = Object.assign({}, configData);
-                        Object.entries(data).forEach(([key, value]) =>
-                            collection[locale][extension][key] = value
-                        );
-                    })
-                } catch (e) {
-                    console.error(`error read ${filename} in ${extension}: ${e}`);
-                }
-                return;
-            }
-
-            if (path.extname(filename).toLowerCase() === '.md') {
-                let title = '';
-                marked.use({
-                    walkTokens: token => {
-                        if (token.type === 'heading' && token.depth === 1) {
-                            title = token.text;
+                const stat = fs.statSync(filepath);
+                if (stat.isDirectory()) {
+                    copyDir(filepath, outpath, {
+                        filiter: (stat, filepath, filename) => {
+                            return filename[0] !== '.';
                         }
-                    }
-                });
-                const markdown = marked.parse(fs.readFileSync(filepath, 'utf8'));
-                const lang = path.extname(path.basename(filename, '.md'))
-                    .substring(1).toLowerCase();
-                const html = ejs.render(template, {lang, title, markdown});
-                fs.writeFileSync(outpath.replace(/\.md$/i, '.html'), html);
-                return;
-            }
-
-            if (path.extname(filename).toLowerCase() === '.js') {
-                let code = fs.readFileSync(filepath, 'utf8');
-                try {
-                    if (isMinify) {
-                        const result = UglifyJS.minify(fs.readFileSync(filepath, 'utf8'));
-                        if (result.error) {
-                            console.error(`error minify ${filename} in ${extension}: ${result.error}`);
-                            return;
-                        }
-                        code = result.code;
-                    }
-                    fs.writeFileSync(outpath, code);
-                } catch (e) {
-                    console.error(`error copy ${filename} in ${extension}: ${e}`);
+                    });
+                    return;
                 }
-                return;
-            }
 
-            fs.copyFileSync(filepath, outpath);
-        });
+                if (filename.toLowerCase() === CONFIG_FILE) {
+                    try {
+                        const {translationMap, ...configData} = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+                        collection['en'] = collection['en'] || {};
+                        collection['en'][extension] = configData;
+                        Object.entries(translationMap).forEach(([locale, data]) => {
+                            collection[locale] = collection[locale] || {};
+                            collection[locale][extension] = Object.assign({}, configData);
+                            Object.entries(data).forEach(([key, value]) =>
+                                collection[locale][extension][key] = value
+                            );
+                        })
+                    } catch (e) {
+                        console.error(`error read ${filename} in ${extension}: ${e}`);
+                    }
+                    return;
+                }
+
+                if (path.extname(filename).toLowerCase() === '.md') {
+                    let title = '';
+                    marked.use({
+                        walkTokens: token => {
+                            if (token.type === 'heading' && token.depth === 1) {
+                                title = token.text;
+                            }
+                        }
+                    });
+                    const markdown = marked.parse(fs.readFileSync(filepath, 'utf8'));
+                    const lang = path.extname(path.basename(filename, '.md'))
+                        .substring(1).toLowerCase();
+                    const html = ejs.render(template, {lang, title, markdown});
+                    fs.writeFileSync(outpath.replace(/\.md$/i, '.html'), html);
+                    return;
+                }
+
+                if (path.extname(filename).toLowerCase() === '.js') {
+                    let code = fs.readFileSync(filepath, 'utf8');
+                    try {
+                        if (isMinify) {
+                            const result = UglifyJS.minify(fs.readFileSync(filepath, 'utf8'));
+                            if (result.error) {
+                                console.error(`error minify ${filename} in ${extension}: ${result.error}`);
+                                return;
+                            }
+                            code = result.code;
+                        }
+                        fs.writeFileSync(outpath, code);
+                    } catch (e) {
+                        console.error(`error copy ${filename} in ${extension}: ${e}`);
+                    }
+                    return;
+                }
+
+                fs.copyFileSync(filepath, outpath);
+            });
     });
 
     try {

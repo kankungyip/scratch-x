@@ -46,8 +46,16 @@ class NotificationBlocks {
         };
     }
 
-    showNotification (args) {
+    async showNotification (args) {
         this.isClicked = false;
+
+        let permission = Notification.permission
+
+        if (permission !== "granted") {
+            permission = await Scratch.Notification.requestPermission();
+        }
+
+        if (permission !== "granted") return;
 
         const notify = new Notification(
             formatMessage({

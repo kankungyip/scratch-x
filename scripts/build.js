@@ -74,14 +74,13 @@ const build = isMinify => {
                 if (filename.toLowerCase() === CONFIG_FILE) {
                     try {
                         const {translationMap, ...configData} = JSON.parse(fs.readFileSync(filepath, 'utf8'));
-                        collection['en'] = collection['en'] || {};
-                        collection['en'][extension] = configData;
+                        collection['en'] = collection['en'] || [];
+                        collection['en'].push(configData);
                         Object.entries(translationMap).forEach(([locale, data]) => {
-                            collection[locale] = collection[locale] || {};
-                            collection[locale][extension] = Object.assign({}, configData);
-                            Object.entries(data).forEach(([key, value]) =>
-                                collection[locale][extension][key] = value
-                            );
+                            collection[locale] = collection[locale] || [];
+                            const localeData = Object.assign({}, configData);
+                            Object.entries(data).forEach(([key, value]) => localeData[key] = value);
+                            collection[locale].push(localeData);
                         })
                     } catch (e) {
                         console.error(`error read ${filename} in ${extension}: ${e}`);
